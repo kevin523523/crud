@@ -1,0 +1,15 @@
+<%= form_with model: @account do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "Kevin Ibarra" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :workflow_state %>
+    <%= form.text_field :workflow_state, placeholder: "workflow_state"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit%>
+  </div>
+<% end %>

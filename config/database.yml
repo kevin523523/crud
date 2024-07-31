@@ -1,0 +1,30 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: kevin
+  password: canvas
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  database: canvas_development
+  username: kevin
+  password: canvas
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: canvas_test
+  host: localhost
+  username: kevin
+  password: canvas
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: canvas_production
+  host: localhost
+  username: kevin
+  password: canvas
+  timeout: 5000

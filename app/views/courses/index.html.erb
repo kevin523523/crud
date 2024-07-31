@@ -1,0 +1,31 @@
+<h1>Cursos</h1>
+<% unless @courses.empty? %>
+  <div>Total de cursos tomados por el estudiante: <%= @courses.count %></div>
+  <br>
+  <% @courses.each do |d| %>
+    <div>
+      <h3>Nombre del curso</h3>
+      <%= d.name %>
+    </div>
+    <div>
+      <h3>Codigo del curso</h3>
+      <%= d.course_code %>
+    </div>
+    <div>
+      <h3>Comienza</h3>
+      <%= d.start_at %>
+    </div>
+    <div>
+      <h3>Termina</h3>
+      <%= d.conclude_at %>
+    </div>
+    <%= link_to 'Show', account_course_assignment_path(@account, @course, d) %> |
+    <br>
+    <span>---------------------------------------</span>
+    <br>
+  <% end %>
+<% end %>
+
+<br>
+<%= link_to 'Crear un nuevo curso', new_account_course_path(@account) %> |
+<%= link_to 'Back to home path', account_path(@account.id) %> |

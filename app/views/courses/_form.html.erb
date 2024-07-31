@@ -1,0 +1,36 @@
+<%= form_with(model: [@account, @course], local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "Lenguajes de programación" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_at %>
+    <%= form.datetime_select :start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :conclude_at %>
+    <%= form.datetime_select :conclude_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_code %>
+    <%= form.text_field :course_code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Crear curso' %>
+  </div>
+  <div class="field">
+    <%= form.label :root_account_id %>
+    <%= form.number_field :root_account_id, value: 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enrollment_term_id %>
+    <%= form.number_field :enrollment_term_id, value: 0 %>
+  </div>
+
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Accounts</h1>
+<%unless @accounts.empty?%>
+    <div>Total de usuarios: <%= @accounts.count %></div>
+    <br>
+    <% @accounts.each do |a|%>
+        <div>Nombre:<%= a.name%></div>
+        
+        <%= link_to 'Show',account_path(a.id)%>
+    <%end%>
+<%end%>
+
+<br>
+<%= link_to 'Crear un nuevo usuario', new_account_path%>

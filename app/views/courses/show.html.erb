@@ -1,0 +1,46 @@
+<% if @course %>
+  <div>
+    <h3>Nombre del curso</h3>
+    <%= @course.name %>
+  </div>
+  <div>
+    <h3>Codigo del curso</h3>
+    <%= @course.course_code %>
+  </div>
+  <div>
+    <h3>Comienza</h3>
+    <%= @course.start_at %>
+  </div>
+  <div>
+    <h3>Termina</h3>
+    <%= @course.conclude_at %>
+  </div>
+  
+  <br>
+  <%= link_to 'Add Assignment', new_account_course_assignment_path(@account, @course) %> |
+  <%= link_to 'Back to home path', account_path(@account) %> |
+  <%= link_to 'Edit', edit_account_course_path(@account, @course) %> |
+  <%= form_with(url: account_course_path(@account, @course), method: :delete, data: { confirm: 'Do you want to delete this course?' }) do %>
+    <%= submit_tag 'Delete' %>
+  <% end %>
+  <br>
+  <% if @assignments.any? %>
+    <h2>Tareas:</h2>
+    <% @assignments.each do |assignment| %>
+      <div>
+        <h4>Titulo de la tarea:</h4><%= assignment.title %>
+        <h4>Descripcion de la tarea:</h4><%= assignment.description %>
+        <br>
+        <br>
+        <%= link_to 'Show', account_course_assignment_path(@account, @course, assignment) %> |
+        <%= link_to 'Edit', edit_account_course_assignment_path(@account, @course, assignment) %> |
+        <%= form_with(url: account_course_assignment_path(@account, @course, assignment), method: :delete, data: { confirm: 'Do you want to delete this assignment?' }) do %>
+          <%= submit_tag 'Delete' %>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+  <% else %>
+    <p>No assignment found.</p>
+  <% end %>
+<% end %>
